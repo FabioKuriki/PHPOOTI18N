@@ -1,16 +1,18 @@
 <?php
     namespace PHP\Modelo; //nome do projeto (pasta), responsável pela conexão entre as classes
 
+    require_once('Endereco.php');
+
     class Pessoa{
         //Declarando as variaveis
-        private string $cpf;
-        private string $nome;
-        private string $telefone;
-        private string $endereco;
+        protected string $cpf;
+        protected string $nome;
+        protected string $telefone;
+        protected Endereco $endereco;
 
          //Método Construtor (instanciar os valores)    
          //this = $this (refere-se a variavel declarado e não a local)
-        public function __construct(string $cpf, string $nome, string $telefone, string $endereco){
+        public function __construct(string $cpf, string $nome, string $telefone, Endereco $endereco){
             $this->cpf = $cpf;
             $this->nome = $nome;
             $this->telefone = $telefone;
@@ -18,53 +20,22 @@
         }//Fim do método construtor
 
         //Método de acesso e modificação
-        public function getCPF():string
+        public function __get(string $campo)
         {
-            return $this->cpf;
-        }//Fim do método getCPF
+            return $this->campo;
+        }//Fim do get genérico
 
-        public function getNome():string
+        public function __set(string $campo, string $valor):void
         {
-            return $this->nome;
-        }//Fim do método getNome
-
-        public function getTelefone():string
-        {
-            return $this->telefone;
-        }//Fim do método getTelefone
-
-        public function getEndereco():string
-        {
-            return $this->endereco;
-        }//Fim do método getEndereco
-
-        public function setCPF(string $cpf):void
-        {
-            $this->cpf = $cpf;
-        }//Fim do método setCPF
-
-        public function setNome(string $nome):void
-        {
-            $this->nome = $nome;
-        }//Fim do método setNome
-
-        public function setTelefone(string $telefone):void
-        {
-            $this->telefone = $telefone;
-        }//Fim do método setTelefone
-
-        public function setEndereco(string $endereco):void
-        {
-            $this->endereco = $endereco;
-        }//Fim do método setEndereco
+            $this->campo = $valor;
+        }//Fim do set genérico
 
         //Melhor usar o this ao chamar o get e set porque mesmo estando na mesma classe, as vezes o PHP não identifica a função
         public function imprimir():string
         {
-            return "<br>CPF: " . $this->getCPF() .
-                    "<br>Nome: " . $this->getNome() .
-                    "<br>Telefone: " . $this->getTelefone() . 
-                    "<br>Endereço: " . $this->getEndereco() . "<br>";
+            return "<br>CPF: " . $this->cpf .
+                    "<br>Nome: " . $this->nome .
+                    "<br>Telefone: " . $this->telefone;
         }//Fim do método imprimir
     }//Fim da classe
 ?>
