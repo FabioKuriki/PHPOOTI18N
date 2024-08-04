@@ -26,7 +26,7 @@
         {
             try{
                 $conn = $conexao->conectar();//guarda o $conn da funcao em $conn
-                $sql = "Insert into cliente (cpf, nome, telefone, endereco, 
+                $sql = "Insert into cliente (cpf, nome, telefone, 
                 dtNascimento, totalDeCompras, codEndereco) values 
                 ('$cpf', '$nome', '$telefone',
                 '$dtNascimento', '$totalCompras', '$codEndereco')";
@@ -58,7 +58,7 @@
             try{
                 $conn = $conexao->conectar();
                 $sql = "Insert into endereco (codigo, logradouro, numero,
-                bairro, cidade, estado, uf, páis, cep) values
+                bairro, cidade, estado, uf, pais, cep) values
                 ('$codigo', '$logradouro', '$numero', '$bairro', '$cidade',
                 '$estado', '$uf', '$pais', '$cep')";
                 $result = mysqli_query($conn, $sql);
