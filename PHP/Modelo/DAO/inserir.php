@@ -57,10 +57,10 @@
         {
             try{
                 $conn = $conexao->conectar();
-                $sql = "Insert into endereco (codigo, logradouro, numero,
-                bairro, cidade, estado, uf, pais, cep) values
-                ('$codigo', '$logradouro', '$numero', '$bairro', '$cidade',
-                '$estado', '$uf', '$pais', '$cep')";
+                $sql = "Insert into endereco (codigo, logradouro,
+                bairro, cidade, estado, uf, pais, cep, numero) values
+                ('$codigo', '$logradouro', '$bairro', '$cidade',
+                '$estado', '$uf', '$pais', '$cep', '$numero')";
                 $result = mysqli_query($conn, $sql);
     
                 mysqli_close($conn);
